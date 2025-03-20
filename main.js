@@ -20,8 +20,8 @@ function getHumanChoice(){
 let humanScore = 0
 let computerScore = 0
 
-const computerChoice = getComputerChoice();
-const humanChoice = getHumanChoice();
+let computerChoice = getComputerChoice();
+let humanChoice = getHumanChoice();
 
 function playRound(humanChoice, computerChoice){
     if (humanChoice === computerChoice){
@@ -42,5 +42,20 @@ function playRound(humanChoice, computerChoice){
     else {
         console.log("You lose! " + computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1) + " beats " + humanChoice + ".");
         computerScore++;
+    }
+}
+
+function playGame(humanScore, computerScore){
+    while (humanScore < 3 || computerScore < 3){
+        let computerChoice = getComputerChoice();
+        let humanChoice = getHumanChoice();
+        playRound(humanChoice, computerChoice);
+        console.log("Score: You " + humanScore + " - " + computerScore + " Computer");
+    }
+    if (humanScore === 3){
+        console.log("Congratulations! You win the game!");
+    }
+    else {
+        console.log("Sorry! The computer wins the game.");
     }
 }
