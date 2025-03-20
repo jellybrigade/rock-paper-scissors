@@ -1,15 +1,6 @@
-function getComputerChoice(){
-    let computerChoice = Math.floor(Math.random() * 3);
-    if (computerChoice === 0){
-        computerChoice = "rock";
-    }
-    else if (computerChoice === 1){
-        computerChoice = "paper";
-    }
-    else if (computerChoice === 2){
-        computerChoice = "scissors";
-    }
-    return computerChoice;
+function getComputerChoice() {
+    const choices = ["rock", "paper", "scissors"];
+    return choices[Math.floor(Math.random() * 3)];
 }
 
 function getHumanChoice(){
@@ -46,7 +37,7 @@ function playRound(humanChoice, computerChoice){
 }
 
 function playGame(humanScore, computerScore){
-    while (humanScore < 3 || computerScore < 3){
+    while (humanScore < 3 && computerScore < 3){
         let computerChoice = getComputerChoice();
         let humanChoice = getHumanChoice();
         playRound(humanChoice, computerChoice);
